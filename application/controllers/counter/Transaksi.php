@@ -38,10 +38,6 @@ class Transaksi extends CI_Controller
     public function calculate()
     {
 
-
-
-
-
         $this->form_validation->set_rules(
             'address',
             'Nomor Resi',
@@ -123,8 +119,8 @@ class Transaksi extends CI_Controller
         // $store_id = $store[0]['store_id'];
         $token = $dataj['token'];
 
-        // var_dump($store_id);
-        // die;
+        var_dump($dataj);
+        die;
 
 
         $sales = $this->user_model->get_allcounter();
