@@ -207,7 +207,7 @@ class Transaksi extends CI_Controller
         $api_url_transaction = $meta->api_transaction;
 
         $transaksi  = $this->transaksi_model->last_transaksi($insert_id);
-        $invoice_no =  str_pad($transaksi->id, 7, '0', STR_PAD_LEFT);
+        $invoice_no = rand(0000001, 9999999);
         $item_price_per_unit = $transaksi->item_price_per_unit;
         $item_price_amount = $transaksi->item_price_amount;
         $item_vat = $transaksi->item_vat;

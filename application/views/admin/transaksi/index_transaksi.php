@@ -5,6 +5,9 @@ if ($this->session->flashdata('message')) {
 }
 echo validation_errors('<div class="alert alert-warning">', '</div>');
 
+
+
+
 ?>
 <div class="card">
 
