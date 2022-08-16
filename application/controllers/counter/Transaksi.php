@@ -119,8 +119,8 @@ class Transaksi extends CI_Controller
         // $store_id = $store[0]['store_id'];
         $token = $dataj['token'];
 
-        var_dump($dataj);
-        die;
+        // var_dump($dataj);
+        // die;
 
 
         $sales = $this->user_model->get_allcounter();
