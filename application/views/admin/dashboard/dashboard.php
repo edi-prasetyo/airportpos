@@ -4,9 +4,9 @@
   <div class="col-lg-6">
     <div class="small-box bg-purple">
       <div class="inner">
-        <h3>Rp. <?php echo number_format($total_topup, "0", ",", "."); ?></h3>
+        <h3> <?php echo count($total_transaksi); ?></h3>
 
-        <p>Pendapatan Top Up</p>
+        <p>Total Transaksi</p>
       </div>
       <div class="icon">
         <i class="fa fa-wallet"></i>

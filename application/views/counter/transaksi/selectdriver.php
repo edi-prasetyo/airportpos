@@ -8,17 +8,21 @@
     </div>
 </nav>
 
-<?php
-if ($this->session->flashdata('message')) {
-    echo $this->session->flashdata('message');
-    unset($_SESSION['message']);
-}
-?>
+
 
 <?php echo form_open('counter/transaksi/select_driver/' . $insert_id,  array('class' => 'needs-validation', 'novalidate' => 'novalidate')); ?>
 <div class="col-md-6 mx-auto my-3 pb-5">
     <div class="card">
         <div class="card-body">
+
+
+            <?php
+            if ($this->session->flashdata('message')) {
+                echo $this->session->flashdata('message');
+                unset($_SESSION['message']);
+            }
+            ?>
+
             <select class="form-control select2bs4" id='sel_provinsi' name="driver_id" required>
                 <option value="">-- Pilih Driver --</option>
                 <?php

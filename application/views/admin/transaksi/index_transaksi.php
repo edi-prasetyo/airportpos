@@ -11,15 +11,6 @@ echo validation_errors('<div class="alert alert-warning">', '</div>');
 ?>
 <div class="card">
 
-
-
-
-
-
-
-
-
-
     <div class="card-header">
         <h3>Data Transaksi AP2
             <!-- <ul class="nav nav-pills ml-auto p-2">
@@ -52,10 +43,10 @@ echo validation_errors('<div class="alert alert-warning">', '</div>');
             <thead class="thead-white">
                 <tr>
                     <th>#</th>
-                    <th>ID</th>
+                    <th>No Invoice</th>
                     <th>Tanggal</th>
-                    <th>Counter</th>
-
+                    <th>Sales</th>
+                    <th>Pelanggan</th>
                     <th>Alamat</th>
                     <th>Status</th>
                     <th>Harga</th>
@@ -66,9 +57,10 @@ echo validation_errors('<div class="alert alert-warning">', '</div>');
             foreach ($transaksi as $transaksi) { ?>
                 <tr>
                     <td><?php echo $no; ?></td>
-                    <td><?php echo  str_pad($transaksi->id, 7, '0', STR_PAD_LEFT); ?> </td>
+                    <td><?php echo $transaksi->invoice_no ?> </td>
                     <td><?php echo date('d M Y', strtotime($transaksi->date_created)); ?> - <?php echo date('H:i:s', strtotime($transaksi->date_created)); ?></td>
-                    <td><?php echo $transaksi->name; ?> </td>
+                    <td><?php echo $transaksi->sales_name; ?> </td>
+                    <td><?php echo $transaksi->passenger_name; ?> </td>
                     <!-- <td><?php echo $transaksi->driver_name; ?> </td> -->
                     <td><?php echo $transaksi->destination; ?> </td>
                     <td>
@@ -83,7 +75,7 @@ echo validation_errors('<div class="alert alert-warning">', '</div>');
                         <?php endif; ?>
 
                     </td>
-                    <td>Rp. <?php echo number_format($transaksi->total_price, 0, ",", "."); ?></td>
+                    <td>Rp. <?php echo number_format($transaksi->transaction_amount, 0, ",", "."); ?></td>
                     <!-- <td><img class="img-fluid" src="<?php echo base_url('assets/img/barcode/' . $transaksi->barcode); ?>"></td> -->
                     <td>
                         <a href="<?php echo base_url('admin/transaksi/detail/' . $transaksi->id); ?>" class="btn btn-success btn-sm">

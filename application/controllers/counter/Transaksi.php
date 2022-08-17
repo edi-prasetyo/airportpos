@@ -193,7 +193,7 @@ class Transaksi extends CI_Controller
             $this->send_data_ap2($insert_id, $store, $token);
             $this->select_driver($insert_id);
             $this->session->set_flashdata('message', 'Data  telah ditambahkan ');
-            // redirect(base_url('counter/transaksi/select_driver/' . $insert_id), 'refresh');
+            redirect(base_url('counter/transaksi/select_driver/' . $insert_id), 'refresh');
         }
     }
 
@@ -223,8 +223,8 @@ class Transaksi extends CI_Controller
                             "trans_date" => date('Y-m-d'),
                             "trans_time" => date('Y-m-d H:i:s'),
                             "sequence_unique" => "1",
-                            "item_name" => "Dropoff",
-                            "item_code" => "139",
+                            "item_name" => "Online",
+                            "item_code" => "001",
                             "item_barcode" => "",
                             "item_cat_name" => "transportasi",
                             "item_cat_code" => "",
@@ -286,16 +286,48 @@ class Transaksi extends CI_Controller
 
         curl_close($ch);
 
-        // print_r($httpcode);
+        $transaksi_ap2 = json_decode($server_output, true);
+        // $store_id = $transaksi_ap2['success_data'][0]['store_id'];
+        // print_r($store_id);
 
-        $this->update_transaction($httpcode,  $transaksi);
+
+        $this->update_transaction($httpcode,  $transaksi, $transaksi_ap2);
     }
 
-    public function update_transaction($httpcode,  $transaksi)
+    public function update_transaction($httpcode,  $transaksi, $transaksi_ap2)
     {
+        $store_id = $transaksi_ap2['success_data'][0]['store_id'];
+        $invoice_no = $transaksi_ap2['success_data'][0]['invoice_no'];
+        $trans_date = $transaksi_ap2['success_data'][0]['trans_date'];
+        $trans_time = $transaksi_ap2['success_data'][0]['trans_time'];
+        $sequence_unique = $transaksi_ap2['success_data'][0]['sequence_unique'];
+        $item_name = $transaksi_ap2['success_data'][0]['item_name'];
+        $item_code = $transaksi_ap2['success_data'][0]['item_code'];
+        $qty = $transaksi_ap2['success_data'][0]['qty'];
+        $item_price_per_unit = $transaksi_ap2['success_data'][0]['item_price_per_unit'];
+        $item_price_amount = $transaksi_ap2['success_data'][0]['item_price_amount'];
+        $item_vat = $transaksi_ap2['success_data'][0]['item_vat'];
+        $item_total_price_amount = $transaksi_ap2['success_data'][0]['item_total_price_amount'];
+        $item_total_vat = $transaksi_ap2['success_data'][0]['item_total_vat'];
+        $transaction_amount = $transaksi_ap2['success_data'][0]['transaction_amount'];
+
         $data = [
-            'id'          => $transaksi->id,
-            'status_code'      => $httpcode,
+            'id'                => $transaksi->id,
+            'status_code'       => $httpcode,
+            'store_id'          => $store_id,
+            'invoice_no'          => $invoice_no,
+            'trans_date'          => $trans_date,
+            'trans_time'          => $trans_time,
+            'sequence_unique'          => $sequence_unique,
+            'item_name'          => $item_name,
+            'item_code'          => $item_code,
+            'item_qty'          => $qty,
+            'item_price_per_unit'          => $item_price_per_unit,
+            'item_price_amount'          => $item_price_amount,
+            'item_vat'          => $item_vat,
+            'item_total_price_amount'          => $item_total_price_amount,
+            'item_total_vat'          => $item_total_vat,
+            'transaction_amount'          => $transaction_amount,
         ];
         $this->transaksi_model->update($data);
     }
@@ -350,7 +382,7 @@ class Transaksi extends CI_Controller
 
             $this->select_driver($insert_id);
             $this->session->set_flashdata('message', 'Data  telah ditambahkan ');
-            redirect(base_url('counter/transaksi/select_driver/' . $insert_id), 'refresh');
+            // redirect(base_url('counter/transaksi/select_driver/' . $insert_id), 'refresh');
         }
     }
 
@@ -398,7 +430,7 @@ class Transaksi extends CI_Controller
             //Update Status Driver
             $this->update_status_driver($user_id);
 
-            $this->session->set_flashdata('message', 'Data  telah ditambahkan ');
+            $this->session->set_flashdata('message', '<div class="alert alert-success">Data  telah ditambahkan</div> ');
             redirect(base_url('counter/transaksi/success'), 'refresh');
         }
     }

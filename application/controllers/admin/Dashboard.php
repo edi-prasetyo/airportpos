@@ -13,13 +13,14 @@ class Dashboard extends CI_Controller
   public function index()
   {
 
-   
+
 
     $total_topup                  = $this->topup_model->total_topup();
     $total_omset_transaksi        = $this->transaksi_model->get_total_omset_transaksi();
 
 
     $count_transaksi              = $this->transaksi_model->get_alltransaksi();
+    $total_transaksi              = $this->transaksi_model->count_transaksi_sukses();
     $count_counter                = $this->user_model->get_allcounter();
     $list_user                    = $this->user_model->get_all();
 
@@ -31,6 +32,7 @@ class Dashboard extends CI_Controller
       'title'                     => 'Dashboard',
       'list_user'                 => $list_user,
       'count_transaksi'           => $count_transaksi,
+      'total_transaksi'           => $total_transaksi,
       'count_counter'             => $count_counter,
       'alltransaksi'              => $alltransaksi,
       'count_alltransaksi'        => $count_alltransaksi,

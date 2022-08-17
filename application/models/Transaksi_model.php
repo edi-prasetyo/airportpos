@@ -66,6 +66,18 @@ class Transaksi_model extends CI_Model
     $query = $this->db->get();
     return $query->result();
   }
+  public function count_transaksi_sukses()
+  {
+
+    $this->db->select('transaksi.*, user.name');
+    $this->db->from('transaksi');
+    // join
+    $this->db->join('user', 'user.id = transaksi.user_id', 'LEFT');
+    // End Join
+    $this->db->where('status_code', 200);
+    $query = $this->db->get();
+    return $query->result();
+  }
   public function get_transaksi_proses()
   {
 
@@ -273,7 +285,7 @@ class Transaksi_model extends CI_Model
   public function get_total_omset_transaksi()
   {
     $this->db->select_sum('total_price');
-    $this->db->where('status', 1);
+    $this->db->where('status_code', 200);
     $query = $this->db->get('transaksi');
     if ($query->num_rows() > 0) {
       return $query->row()->total_price;

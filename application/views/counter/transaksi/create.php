@@ -106,14 +106,14 @@ $meta = $this->meta_model->get_meta();
                     </div>
 
 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label>Nama Penumpang</label>
                             <input type="text" class="form-control" name="passenger_name" placeholder="Nama Penumpang" required>
                             <div class="invalid-feedback">Silahkan Masukan Nama Penumpang</div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <div class="form-group">
                             <label>Nomor HP</label>
                             <input type="text" class="form-control" name="passenger_phone" placeholder="Nomor HP Penumpang">
@@ -124,7 +124,7 @@ $meta = $this->meta_model->get_meta();
                             <label>Email</label>
                             <input type="text" class="form-control" name="passenger_email" placeholder="Email Penumpang">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Lanjutkan</button>

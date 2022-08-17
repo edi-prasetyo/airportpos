@@ -50,19 +50,19 @@ $meta = $this->meta_model->get_meta();
             </p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="<?php echo base_url(); ?>admin/bank" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Bank</p>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a href="<?php echo base_url(); ?>admin/product" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Product</p>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="<?php echo base_url(); ?>admin/persentase" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Persentase</p>
@@ -73,11 +73,11 @@ $meta = $this->meta_model->get_meta();
                 <i class="far fa-circle nav-icon"></i>
                 <p>Setting Nilai Topup</p>
               </a>
-            </li>
+            </li> -->
           </ul>
         </li>
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-wallet"></i>
             <p>
@@ -92,17 +92,14 @@ $meta = $this->meta_model->get_meta();
                 <p>Top Up</p>
               </a>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a href="<?php echo base_url(); ?>admin/withdraw" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Withdraw</p>
               </a>
-            </li> -->
-
-
-
+            </li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-user-friends"></i>
