@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <h4>
-                <i class="fas fa-globe"></i>PT. Mandar Gama Indonesia
+                <i class="fas fa-globe"></i> <?php echo $meta->title; ?>
 
             </h4>
         </div>
