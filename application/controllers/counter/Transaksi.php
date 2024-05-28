@@ -204,8 +204,8 @@ class Transaksi extends CI_Controller
             ];
             // $this->transaksi_model->create($data);
             $insert_id = $this->transaksi_model->create($data);
-            // $this->send_data_ap2($insert_id, $store, $trans_date, $trans_time, $token);
-            // $this->select_driver($insert_id);
+            $this->send_data_ap2($insert_id, $store, $trans_date, $trans_time, $token);
+            $this->select_driver($insert_id);
             $this->session->set_flashdata('message', 'Data  telah ditambahkan ');
             redirect(base_url('counter/transaksi/select_driver/' . $insert_id), 'refresh');
         }
