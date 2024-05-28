@@ -78,6 +78,7 @@ $meta      = $this->meta_model->get_meta();
 
 <script type="text/javascript">
   $(document).ready(function() {
+    $('#J-demo-01').dateTimePicker({});
     $('#J-demo-02').dateTimePicker({
       mode: 'dateTime'
     });

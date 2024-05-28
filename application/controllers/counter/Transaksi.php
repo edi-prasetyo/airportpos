@@ -136,8 +136,8 @@ class Transaksi extends CI_Controller
         $address            = $this->input->post('address');
         $jarak              = $this->input->post('jarak');
 
-        $tanggal_jam = $this->input->post('tanggal_jam');
-        $tanggal = date('Y-m-d', strtotime($tanggal_jam));
+
+
 
 
 
@@ -181,8 +181,8 @@ class Transaksi extends CI_Controller
                 'origin'                            => $origin,
                 'destination'                       => $this->input->post('destination'),
                 'jarak'                             => $this->input->post('jarak'),
-                'trans_date'                             => $tanggal,
-                'trans_time'                             => $tanggal_jam,
+                'trans_date'                             => $this->input->post('tanggal'),
+                'trans_time'                             => $this->input->post('tanggal_jam'),
                 'start_price'                       => $product->start_price,
                 'total_price'                       => $total_price,
                 'stage'                             => 1,

@@ -46,6 +46,14 @@
                         <div class="form-group">
                             <label> Tanggal Jam</label>
 
+                            <input type="text" name="tanggal" id="J-demo-01" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Jam</label>
+
                             <input type="text" name="tanggal_jam" id="J-demo-02" class="form-control">
 
                         </div>
