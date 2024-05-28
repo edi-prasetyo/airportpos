@@ -169,7 +169,8 @@ class Transaksi extends CI_Controller
             $this->load->view('counter/layout/wrapp', $data, FALSE);
         } else {
 
-
+            $trans_date = $this->input->post('trans_date');
+            $trans_time = $this->input->post('trans_time');
 
 
             $order_id = strtoupper(random_string('alnum', 7));
@@ -201,14 +202,14 @@ class Transaksi extends CI_Controller
             ];
             // $this->transaksi_model->create($data);
             $insert_id = $this->transaksi_model->create($data);
-            $this->send_data_ap2($insert_id, $store, $token);
+            $this->send_data_ap2($insert_id, $store, $trans_date, $trans_time, $token);
             $this->select_driver($insert_id);
             $this->session->set_flashdata('message', 'Data  telah ditambahkan ');
             redirect(base_url('counter/transaksi/select_driver/' . $insert_id), 'refresh');
         }
     }
 
-    public function send_data_ap2($insert_id, $store, $token)
+    public function send_data_ap2($insert_id, $store, $trans_date, $trans_time,  $token)
     {
         $meta = $this->meta_model->get_meta();
         $api_url_transaction = $meta->api_transaction;
@@ -231,8 +232,8 @@ class Transaksi extends CI_Controller
                     "transactions" => array(
                         [
                             "invoice_no" => $invoice_no,
-                            "trans_date" => '2024-05-01',
-                            "trans_time" => '2024-05-01 15:15:15',
+                            "trans_date" =>  $trans_date,
+                            "trans_time" =>  $trans_time,
                             "sequence_unique" => "1",
                             "item_name" => "Online",
                             "item_code" => "001",
