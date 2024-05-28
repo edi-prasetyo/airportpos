@@ -163,8 +163,7 @@ class Transaksi extends CI_Controller
                 'user'                            => $user,
                 'store'                         => $store,
                 'sales'                         => $sales,
-                'tanggal'                       => $tanggal,
-                'tanggal_jam'                   => $tanggal_jam,
+
                 'content'                         => 'counter/transaksi/create'
             ];
             $this->load->view('counter/layout/wrapp', $data, FALSE);
