@@ -167,7 +167,7 @@ class Transaksi extends CI_Controller
         } else {
 
             $tanggal_jam = $this->input->post('tanggal_jam');
-            $tanggal = date('Y-m-d', strtotime($tanggal_jam));
+            $tanggal = date('Y-m-d', $tanggal_jam);
             $jam = $tanggal_jam;
 
             $order_id = strtoupper(random_string('alnum', 7));
