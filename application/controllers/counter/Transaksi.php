@@ -168,7 +168,7 @@ class Transaksi extends CI_Controller
 
             $tanggal_jam = $this->input->post('tanggal_jam');
             $tanggal = date('Y-m-d', $tanggal_jam);
-            $jam = $tanggal_jam;
+
 
             $order_id = strtoupper(random_string('alnum', 7));
             $data  = [
@@ -182,7 +182,7 @@ class Transaksi extends CI_Controller
                 'destination'                       => $this->input->post('destination'),
                 'jarak'                             => $this->input->post('jarak'),
                 'trans_date'                             => $tanggal,
-                'trans_time'                             => $jam,
+                'trans_time'                             => $tanggal_jam,
                 'start_price'                       => $product->start_price,
                 'total_price'                       => $total_price,
                 'stage'                             => 1,
