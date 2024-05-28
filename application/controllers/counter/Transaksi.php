@@ -136,9 +136,7 @@ class Transaksi extends CI_Controller
         $address            = $this->input->post('address');
         $jarak              = $this->input->post('jarak');
 
-        $tanggal_jam = $this->input->post('tanggal_jam');
-        $tanggal = date('Y-m-d', strtotime($tanggal_jam));
-        $jam = date('Y-m-d H:i:s', strtotime($tanggal_jam));
+
 
 
 
@@ -167,6 +165,10 @@ class Transaksi extends CI_Controller
             ];
             $this->load->view('counter/layout/wrapp', $data, FALSE);
         } else {
+
+            $tanggal_jam = $this->input->post('tanggal_jam');
+            $tanggal = date('Y-m-d', strtotime($tanggal_jam));
+            $jam = date('Y-m-d H:i:s', strtotime($tanggal_jam));
 
             $order_id = strtoupper(random_string('alnum', 7));
             $data  = [
@@ -227,8 +229,8 @@ class Transaksi extends CI_Controller
                     "transactions" => array(
                         [
                             "invoice_no" => $invoice_no,
-                            "trans_date" => date('Y-m-d'),
-                            "trans_time" => date('Y-m-d H:i:s'),
+                            "trans_date" => $transaksi->trans_date,
+                            "trans_time" => $transaksi->trans_time,
                             "sequence_unique" => "1",
                             "item_name" => "Online",
                             "item_code" => "001",
