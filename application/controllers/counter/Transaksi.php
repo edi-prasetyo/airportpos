@@ -169,8 +169,8 @@ class Transaksi extends CI_Controller
             $this->load->view('counter/layout/wrapp', $data, FALSE);
         } else {
 
-            $trans_date = $this->input->post('trans_date');
-            $trans_time = $this->input->post('trans_time');
+            $trans_date = $this->input->get('trans_date');
+            $trans_time = $this->input->get('trans_time');
 
 
             $order_id = strtoupper(random_string('alnum', 7));
