@@ -136,6 +136,8 @@ class Transaksi extends CI_Controller
         $address            = $this->input->post('address');
         $jarak              = $this->input->post('jarak');
 
+        $tanggal = $this->input->post('tanggal');
+        $tanggal_jam = $this->input->post('tanggal_jam');
 
 
 
@@ -162,6 +164,8 @@ class Transaksi extends CI_Controller
                 'user'                            => $user,
                 'store'                         => $store,
                 'sales'                         => $sales,
+                'tanggal'                       => $tanggal,
+                'tanggal_jam'                   => $tanggal_jam,
                 'content'                         => 'counter/transaksi/create'
             ];
             $this->load->view('counter/layout/wrapp', $data, FALSE);
@@ -181,8 +185,8 @@ class Transaksi extends CI_Controller
                 'origin'                            => $origin,
                 'destination'                       => $this->input->post('destination'),
                 'jarak'                             => $this->input->post('jarak'),
-                'trans_date'                             => $this->input->post('tanggal'),
-                'trans_time'                             => $this->input->post('tanggal_jam'),
+                'trans_date'                             => $tanggal,
+                'trans_time'                             => $tanggal_jam,
                 'start_price'                       => $product->start_price,
                 'total_price'                       => $total_price,
                 'stage'                             => 1,
@@ -199,14 +203,14 @@ class Transaksi extends CI_Controller
             ];
             // $this->transaksi_model->create($data);
             $insert_id = $this->transaksi_model->create($data);
-            $this->send_data_ap2($insert_id, $store, $token);
+            $this->send_data_ap2($insert_id, $store, $token, $tanggal, $tanggal_jam);
             $this->select_driver($insert_id);
             $this->session->set_flashdata('message', 'Data  telah ditambahkan ');
             redirect(base_url('counter/transaksi/select_driver/' . $insert_id), 'refresh');
         }
     }
 
-    public function send_data_ap2($insert_id, $store, $token)
+    public function send_data_ap2($insert_id, $store, $token, $tanggal, $tanggal_jam)
     {
         $meta = $this->meta_model->get_meta();
         $api_url_transaction = $meta->api_transaction;
@@ -229,8 +233,8 @@ class Transaksi extends CI_Controller
                     "transactions" => array(
                         [
                             "invoice_no" => $invoice_no,
-                            "trans_date" => $transaksi->trans_date,
-                            "trans_time" => $transaksi->trans_time,
+                            "trans_date" => $tanggal,
+                            "trans_time" => $tanggal_jam,
                             "sequence_unique" => "1",
                             "item_name" => "Online",
                             "item_code" => "001",
