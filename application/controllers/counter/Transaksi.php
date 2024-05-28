@@ -73,7 +73,54 @@ class Transaksi extends CI_Controller
     public function create()
     {
 
+        $meta = $this->meta_model->get_meta();
+        $api_url_login = $meta->api_login;
 
+        $username = $meta->ap_username;
+        $password = $meta->ap_password;
+
+
+        header('Content-type: text/html; charset=utf-8');
+
+        $url = $api_url_login;
+        $User_Agent = 'Mozilla/5.0 (Windows NT 6.1; rv:60.0) Gecko/20100101 Firefox/60.0';
+
+        $request_headers[] = 'X-picturemaxx-api-key: key';
+        $request_headers[] = 'Contect-Type:text/html';
+        $request_headers[] = 'Accept:text/html';
+        $request_headers[] = 'Accept: application/json';
+        $request_headers[] = 'Content-type: application/json';
+        $request_headers[] = 'Accept-Encoding:  gzip, deflate, identity';
+        $request_headers[] = 'Expect: ';
+
+        $dataj = array(
+            'password' => $username,
+            'username' => $password
+        );
+        $data_json = json_encode($dataj);
+        $request_headers[] = 'Content-Length: ' . strlen($data_json);
+        $ch = curl_init($url);
+
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_USERAGENT, $User_Agent);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $request_headers);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_ENCODING, "");
+
+        // Execute
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $dataj = json_decode($result, true);
+
+        $store = $dataj['user']['store'];
+        // $store_id = $store[0]['store_id'];
+        $token = $dataj['token'];
+
+        // var_dump($dataj);
+        // die;
 
 
         $sales = $this->user_model->get_allcounter();
@@ -155,7 +202,8 @@ class Transaksi extends CI_Controller
             ];
             // $this->transaksi_model->create($data);
             $insert_id = $this->transaksi_model->create($data);
-
+            // $this->send_data_ap2($insert_id, $store, $trans_date, $trans_time, $token);
+            // $this->select_driver($insert_id);
             $this->session->set_flashdata('message', 'Data  telah ditambahkan ');
             redirect(base_url('counter/transaksi/select_driver/' . $insert_id), 'refresh');
         }
