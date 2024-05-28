@@ -135,7 +135,8 @@ class Transaksi extends CI_Controller
         $product            = $this->product_model->car_product();
         $address            = $this->input->post('address');
         $jarak              = $this->input->post('jarak');
-
+        $trans_date        = $this->input->post('trans_date');
+        $trans_time        = $this->input->post('trans_time');
 
 
 
@@ -163,6 +164,8 @@ class Transaksi extends CI_Controller
                 'user'                            => $user,
                 'store'                         => $store,
                 'sales'                         => $sales,
+                'trans_date'                    => $trans_date,
+                'trans_time'                    => $trans_time,
 
                 'content'                         => 'counter/transaksi/create'
             ];

@@ -62,6 +62,8 @@ $meta = $this->meta_model->get_meta();
 <input type="hidden" name="product_id" value="1">
 <input type="hidden" name="destination" value="<?php echo $address; ?>">
 <input type="hidden" name="jarak" value="<?php echo $jarak; ?>">
+<input type="text" name="trans_date" value="<?php echo $trans_date; ?>">
+<input type="text" name="trans_time" value="<?php echo $trans_time; ?>">
 
 
 <input type="hidden" name="item_price_per_unit" value="<?php echo $total_price; ?>">
