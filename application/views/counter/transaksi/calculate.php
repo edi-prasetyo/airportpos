@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label> Tanggal Jam</label>
 
-                            <input type="text" name="trans_date" id="J-demo-01" class="form-control">
+                            <input type="date" name="trans_date" class="form-control">
 
                         </div>
                     </div>
