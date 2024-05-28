@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label> Tanggal Jam</label>
 
-                            <input type="text" name="trans_date" id="J-demo-01" class="form-control">
+                            <input type="text" name="trans_date" id="J-demo-01" class="form-control" autocomplete="off">
 
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         <div class="form-group">
                             <label> Jam</label>
 
-                            <input type="text" name="trans_time" id="J-demo-02" class="form-control">
+                            <input type="text" name="trans_time" id="J-demo-02" class="form-control" autocomplete="off">
 
                         </div>
                     </div>
