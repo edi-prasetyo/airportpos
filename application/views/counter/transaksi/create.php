@@ -105,6 +105,18 @@ $meta = $this->meta_model->get_meta();
                         </div>
                     </div>
 
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Tanggal</label>
+                            <input type="date" name="trans_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Jam</label>
+                            <input type="date" name="trans_time" class="form-control">
+                        </div>
+                    </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
