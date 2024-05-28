@@ -136,7 +136,8 @@ class Transaksi extends CI_Controller
         $address            = $this->input->post('address');
         $jarak              = $this->input->post('jarak');
 
-
+        $tanggal_jam = $this->input->post('tanggal_jam');
+        $tanggal = date('Y-m-d', strtotime($tanggal_jam));
 
 
 
@@ -166,8 +167,7 @@ class Transaksi extends CI_Controller
             $this->load->view('counter/layout/wrapp', $data, FALSE);
         } else {
 
-            $tanggal_jam = $this->input->post('tanggal_jam');
-            $tanggal = date('Y-m-d', strtotime($tanggal_jam));
+
 
 
             $order_id = strtoupper(random_string('alnum', 7));
