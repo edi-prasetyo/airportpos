@@ -233,8 +233,8 @@ class Transaksi extends CI_Controller
                     "transactions" => array(
                         [
                             "invoice_no" => $invoice_no,
-                            "trans_date" => $tanggal,
-                            "trans_time" => $tanggal_jam,
+                            "trans_date" => '2024-05-01',
+                            "trans_time" => '2024-05-01 15:15:15',
                             "sequence_unique" => "1",
                             "item_name" => "Online",
                             "item_code" => "001",
@@ -329,8 +329,8 @@ class Transaksi extends CI_Controller
             'status_code'       => $httpcode,
             'store_id'          => $store_id,
             'invoice_no'          => $invoice_no,
-            // 'trans_date'          => $trans_date,
-            // 'trans_time'          => $trans_time,
+            'trans_date'          => $trans_date,
+            'trans_time'          => $trans_time,
             'sequence_unique'          => $sequence_unique,
             'item_name'          => $item_name,
             'item_code'          => $item_code,
