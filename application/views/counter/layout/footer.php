@@ -69,10 +69,22 @@ $meta      = $this->meta_model->get_meta();
   </div>
 </div>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/template/mobile/'); ?>js/slick.min.js"></script>
 <script src="<?php echo base_url('assets/template/mobile/'); ?>js/main.js"></script>
 <script src="<?php echo base_url() ?>assets/template/front/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="https://www.jqueryscript.net/demo/Cross-browser-Date-Time-Selector-For-jQuery-dateTimePicker/date-time-picker.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#J-demo-02').dateTimePicker({
+      mode: 'dateTime'
+    });
+  });
+</script>
+
+
 
 
 

@@ -21,6 +21,7 @@
   <!-- Icon -->
   <link rel="stylesheet" href="<?php echo base_url('assets/template/mobile/'); ?>icon/remixicon/remixicon.css">
 
+
 </head>
 
 <body class="bg-light">

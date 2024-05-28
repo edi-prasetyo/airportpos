@@ -23,7 +23,7 @@
             <div class="card-body">
                 <?php echo form_open('counter/transaksi/create',  array('class' => 'needs-validation', 'novalidate' => 'novalidate')); ?>
 
-                
+
 
                 <div class="form-group">
                     <label>Alamat Tujuan</label>
@@ -39,6 +39,20 @@
                     <input type="number" class="form-control" name="jarak" placeholder="km" required>
                     <div class="invalid-feedback">Silahkan Masukan Total KM.</div>
                 </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Tanggal Jam</label>
+
+                            <input type="text" name="tanggal_jam" id="J-demo-02" class="form-control">
+
+                        </div>
+                    </div>
+
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-block">Cek Harga</button>
             </div>
         </div>
