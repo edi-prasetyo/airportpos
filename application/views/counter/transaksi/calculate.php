@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label> Tanggal Jam</label>
 
-                            <input type="text" name="tanggal_jam" class="form-control">
+                            <input type="text" name="tanggal_jam" id="J-demo-02" class="form-control">
 
                         </div>
                     </div>
