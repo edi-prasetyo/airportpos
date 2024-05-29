@@ -40,9 +40,9 @@
                     <div class="invalid-feedback">Silahkan Masukan Total KM.</div>
                 </div>
 
-                <div class="row">
+                <div class="row pb-5">
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-5">
                         <div class="form-group">
                             <label> Tanggal Jam</label>
 
@@ -50,7 +50,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-5">
                         <div class="form-group">
                             <label> Jam</label>
 
