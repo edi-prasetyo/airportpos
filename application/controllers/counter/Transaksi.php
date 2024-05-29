@@ -178,6 +178,7 @@ class Transaksi extends CI_Controller
             $order_id = strtoupper(random_string('alnum', 7));
             $data  = [
                 'user_id'                           => $this->session->userdata('id'),
+                'store_id'                          => $this->input->post('store_id'),
                 'product_id'                        => $this->input->post('product_id'),
                 'order_id'                          => $order_id,
                 'passenger_name'                    => $this->input->post('passenger_name'),
@@ -204,14 +205,14 @@ class Transaksi extends CI_Controller
             ];
             // $this->transaksi_model->create($data);
             $insert_id = $this->transaksi_model->create($data);
-            $this->send_data_ap2($insert_id, $store, $token);
+            $this->send_data_ap2($insert_id,  $token);
             $this->select_driver($insert_id);
             $this->session->set_flashdata('message', 'Data  telah ditambahkan ');
             redirect(base_url('counter/transaksi/select_driver/' . $insert_id), 'refresh');
         }
     }
 
-    public function send_data_ap2($insert_id, $store, $token)
+    public function send_data_ap2($insert_id,  $token)
     {
         $meta = $this->meta_model->get_meta();
         $api_url_transaction = $meta->api_transaction;
@@ -224,7 +225,7 @@ class Transaksi extends CI_Controller
         $item_total_price_amount = $transaksi->item_total_price_amount;
         $transaction_amount = $transaksi->transaction_amount;
 
-        $store_id   = $store[0]['store_id'];
+        $store_id   = $transaksi->store_id;
 
 
         $data = array(
