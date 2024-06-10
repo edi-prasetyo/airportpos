@@ -25,8 +25,8 @@ class Transaksi_model extends CI_Model
   {
     $this->db->select('transaksi.*, COUNT(transaksi.id) AS total');
     $this->db->from('transaksi');
-    $this->db->group_by('DATE(date_created)');
-    $this->db->order_by('DATE(date_created)', 'DESC');
+    $this->db->group_by('DATE(trans_time)');
+    $this->db->order_by('DATE(trans_time)', 'DESC');
     $this->db->limit(7);
     $query = $this->db->get();
     return $query->result();
