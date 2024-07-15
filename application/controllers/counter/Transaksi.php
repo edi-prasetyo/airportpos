@@ -154,7 +154,7 @@ class Transaksi extends CI_Controller
         $trans_date        = $this->input->post('trans_date');
         $trans_time        = $this->input->post('trans_time');
 
-        return $address;
+
 
 
 
