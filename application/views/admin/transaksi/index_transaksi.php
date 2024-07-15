@@ -58,7 +58,7 @@ echo validation_errors('<div class="alert alert-warning">', '</div>');
                 <tr>
                     <td><?php echo $no; ?></td>
                     <td><?php echo $transaksi->invoice_no ?> </td>
-                    <td><?php echo date('d M Y', strtotime($transaksi->date_created)); ?> - <?php echo date('H:i:s', strtotime($transaksi->date_created)); ?></td>
+                    <td><?php echo date('d M Y', strtotime($transaksi->trans_time)); ?> - <?php echo date('H:i:s', strtotime($transaksi->trans_time)); ?></td>
                     <td><?php echo $transaksi->sales_name; ?> </td>
                     <td><?php echo $transaksi->passenger_name; ?> </td>
                     <!-- <td><?php echo $transaksi->driver_name; ?> </td> -->

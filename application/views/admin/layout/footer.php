@@ -71,7 +71,7 @@ $alltransaksi         = $this->transaksi_model->get_chart_transaksi();
 
 
 foreach ($alltransaksi as $data) {
-  $tanggal[] = tanggal_indonesia_lengkap(date('Y-m-d', strtotime($data->date_created)));
+  $tanggal[] = tanggal_indonesia_lengkap(date('Y-m-d', strtotime($data->trans_time)));
   $order[] = (float) $data->total;
 }
 ?>
