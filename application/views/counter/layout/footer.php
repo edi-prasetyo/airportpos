@@ -69,7 +69,11 @@ $meta      = $this->meta_model->get_meta();
   </div>
 </div>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
 <script type="text/javascript" src="<?php echo base_url('assets/template/mobile/'); ?>js/slick.min.js"></script>
 <script src="<?php echo base_url('assets/template/mobile/'); ?>js/main.js"></script>
 <script src="<?php echo base_url() ?>assets/template/front/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -82,6 +86,21 @@ $meta      = $this->meta_model->get_meta();
     $('#J-demo-02').dateTimePicker({
       mode: 'dateTime'
     });
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('#address').autocomplete({
+      source: "<?php echo site_url('counter/transaksi/get_autocomplete'); ?>",
+
+      select: function(event, ui) {
+        $('[name="address"]').val(ui.item.label);
+        $('[name="distance"]').val(ui.item.distance);
+      }
+    });
+
   });
 </script>
 

@@ -24,19 +24,43 @@
                 <?php echo form_open('counter/transaksi/create',  array('class' => 'needs-validation', 'novalidate' => 'novalidate')); ?>
 
 
+                <!-- <select class="form-control select2bs4" id='sel_provinsi' name="direction_id" required>
+                    <option value="">-- Pilih Alamat --</option>
+                    <?php
+                    foreach ($directions as $data) : ?>
+                        <option value='<?php echo $data->address; ?>'><?php echo $data->address; ?></option>
 
-                <div class="form-group">
+                    <?php endforeach; ?>
+                </select> -->
+
+
+
+                <!-- <div class="form-group">
                     <label>Alamat Tujuan</label>
                     <div class="input-group mb-3">
                         <textarea class="form-control" name="address" placeholder="Alamat Tujuan" required></textarea>
 
                     </div>
                     <div class="invalid-feedback">Silahkan Masukan Alamat Tujuan</div>
+                </div> -->
+
+
+
+
+
+
+
+                <!-- Autocpmplete -->
+
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" name="address" class="form-control" id="address" placeholder="address" style="width:500px;">
                 </div>
+
 
                 <div class="form-group">
                     <label>KM</label>
-                    <input type="number" class="form-control" name="jarak" placeholder="km" required>
+                    <input type="number" class="form-control" name="distance" placeholder="km" required>
                     <div class="invalid-feedback">Silahkan Masukan Total KM.</div>
                 </div>
 

@@ -60,8 +60,10 @@ $meta = $this->meta_model->get_meta();
 
 
 <input type="hidden" name="product_id" value="1">
+
 <input type="hidden" name="destination" value="<?php echo $address; ?>">
 <input type="hidden" name="jarak" value="<?php echo $jarak; ?>">
+
 <div class="row">
     <div class="col-md-6">
         <input type="text" name="trans_date" value="<?php echo $trans_date; ?>">

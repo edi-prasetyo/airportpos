@@ -16,6 +16,7 @@ class Transaksi extends CI_Controller
         $this->load->model('transaksi_model');
         $this->load->model('persentase_model');
         $this->load->model('tarif_model');
+        $this->load->model('direction_model');
     }
     //Index
     public function index()
@@ -35,8 +36,24 @@ class Transaksi extends CI_Controller
         $this->load->view('counter/layout/wrapp', $data, FALSE);
     }
 
+    function get_autocomplete()
+    {
+        if (isset($_GET['term'])) {
+            $result = $this->direction_model->search_address($_GET['term']);
+            if (count($result) > 0) {
+                foreach ($result as $row)
+                    $arr_result[] = array(
+                        'label'                 => $row->address,
+                        'distance'   => $row->distance,
+                    );
+                echo json_encode($arr_result);
+            }
+        }
+    }
+
     public function calculate()
     {
+        $directions = $this->direction_model->get_direction();
 
         $this->form_validation->set_rules(
             'address',
@@ -59,7 +76,7 @@ class Transaksi extends CI_Controller
                 'title'         => 'Buat Pesanan',
                 'deskripsi'     => 'Cek Resi Pengiriman',
                 'keywords'      => 'Resi',
-
+                'directions'    => $directions,
                 'content'       => 'counter/transaksi/calculate'
             ];
             $this->load->view('counter/layout/wrapp', $data, FALSE);
@@ -126,7 +143,6 @@ class Transaksi extends CI_Controller
         $sales = $this->user_model->get_allcounter();
 
 
-
         $id = $this->session->userdata('id');
         $user = $this->user_model->user_detail($id);
 
@@ -134,11 +150,11 @@ class Transaksi extends CI_Controller
 
         $product            = $this->product_model->car_product();
         $address            = $this->input->post('address');
-        $jarak              = $this->input->post('jarak');
+        $jarak              = $this->input->post('distance');
         $trans_date        = $this->input->post('trans_date');
         $trans_time        = $this->input->post('trans_time');
 
-
+        return $address;
 
 
 

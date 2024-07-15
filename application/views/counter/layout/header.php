@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/template/mobile/'); ?>css/style.css">
   <link rel="stylesheet" href="<?php echo base_url('assets/template/mobile/'); ?>css/slick.css">
   <link rel="stylesheet" href="<?php echo base_url('assets/template/mobile/'); ?>css/slick-theme.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 
   <!-- Icon -->
   <link rel="stylesheet" href="<?php echo base_url('assets/template/mobile/'); ?>icon/remixicon/remixicon.css">
