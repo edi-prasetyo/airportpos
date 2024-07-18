@@ -47,7 +47,7 @@ class Direction_model extends CI_Model
     {
         $this->db->like('address', $address, 'both');
         $this->db->order_by('address', 'ASC');
-        $this->db->limit(10);
+        $this->db->limit(40);
         return $this->db->get('directions')->result();
     }
 }
